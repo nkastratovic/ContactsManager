@@ -28,6 +28,7 @@ namespace ServiceContracts.DTO
       return CountryID == country_to_compare.CountryID && CountryName == country_to_compare.CountryName;
     }
 
+    //returns an unique key for the current object
     public override int GetHashCode()
     {
       return base.GetHashCode();
