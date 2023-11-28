@@ -1,11 +1,11 @@
 ﻿namespace Entities
 {
-    public class Country
-    {
-        /// <summary>
-        /// Domain Model for Country
-        /// </summary>
-        public Guid CountryID { get; set; }
-        public string? CountryName { get; set; }
-    }
+  /// <summary>
+  /// Domain Model for Country
+  /// </summary>
+  public class Country
+  {
+    public Guid CountryID { get; set; }
+    public string? CountryName { get; set; }
+  }
 }
