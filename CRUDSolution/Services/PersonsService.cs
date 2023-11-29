@@ -125,6 +125,7 @@ namespace Services
       return matchingPersons;
     }
 
+
     public List<PersonResponse> GetSortedPersons(List<PersonResponse> allPersons, string sortBy, SortOrderOptions sortOrder)
     {
       if (string.IsNullOrEmpty(sortBy))
@@ -170,9 +171,32 @@ namespace Services
       return sortedPersons;
     }
 
+
     public PersonResponse UpdatePerson(PersonUpdateRequest? personUpdateRequest)
     {
-      throw new NotImplementedException();
+      if (personUpdateRequest == null)
+        throw new ArgumentNullException(nameof(Person));
+
+      //validation
+      ValidationHelper.ModelValidation(personUpdateRequest);
+
+      //get matching person object to update
+      Person? matchingPerson = _persons.FirstOrDefault(temp => temp.PersonID == personUpdateRequest.PersonID);
+      if (matchingPerson == null)
+      {
+        throw new ArgumentException("Given person id doesn't exist");
+      }
+
+      //update all details
+      matchingPerson.PersonName = personUpdateRequest.PersonName;
+      matchingPerson.Email = personUpdateRequest.Email;
+      matchingPerson.DateOfBirth = personUpdateRequest.DateOfBirth;
+      matchingPerson.Gender = personUpdateRequest.Gender.ToString();
+      matchingPerson.CountryID = personUpdateRequest.CountryID;
+      matchingPerson.Address = personUpdateRequest.Address;
+      matchingPerson.ReceiveNewsLetters = personUpdateRequest.ReceiveNewsLetters;
+
+      return matchingPerson.ToPersonResponse();
     }
   }
 }
