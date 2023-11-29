@@ -169,5 +169,10 @@ namespace Services
 
       return sortedPersons;
     }
+
+    public PersonResponse UpdatePerson(PersonUpdateRequest? personUpdateRequest)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
