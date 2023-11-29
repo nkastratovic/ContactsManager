@@ -52,10 +52,12 @@ namespace Services
       return ConvertPersonToPersonResponse(person);
     }
 
+
     public List<PersonResponse> GetAllPersons()
     {
       return _persons.Select(temp => temp.ToPersonResponse()).ToList();
     }
+
 
     public PersonResponse? GetPersonByPersonID(Guid? personID)
     {
@@ -63,7 +65,6 @@ namespace Services
         return null;
 
       Person? person = _persons.FirstOrDefault(temp => temp.PersonID == personID);
-
       if (person == null)
         return null;
 
