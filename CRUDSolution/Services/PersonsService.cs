@@ -4,6 +4,7 @@ using ServiceContracts.DTO;
 using ServiceContracts;
 using System.ComponentModel.DataAnnotations;
 using Services.Helpers;
+using ServiceContracts.Enums;
 
 namespace Services
 {
@@ -121,6 +122,11 @@ namespace Services
         default: matchingPersons = allPersons; break;
       }
       return matchingPersons;
+    }
+
+    public List<PersonResponse> GetSortedPersons(List<PersonResponse> allPersons, string sortedBy, SortOrderOptions sortOrder)
+    {
+      throw new NotImplementedException();
     }
   }
 }
