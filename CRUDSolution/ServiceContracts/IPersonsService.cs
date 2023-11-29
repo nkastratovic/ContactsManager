@@ -62,6 +62,6 @@ namespace ServiceContracts
     /// </summary>
     /// <param name="PersonID">PersonID to delete</param>
     /// <returns>Returns true, if the deletion is successful; otherwise false</returns>
-    bool DeletePerson(Guid? PersonID);
+    bool DeletePerson(Guid? personID);
   }
 }
