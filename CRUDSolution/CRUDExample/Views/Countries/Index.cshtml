@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CountryResponse>
+
+@{
+ ViewBag.Title = "Countries";
+}
+<form asp-controller="Countries" asp-action="Index" method="get">
+ <h1>Countries</h1>
+
+ <a asp-controller="Countries" asp-action="Create">Create Country</a>
+
+ <table class="table w-100 mt">
+  <thead>
+   <tr>
+    @await Html.PartialAsync("_GridColumnHeader", new ViewDataDictionary(ViewData) {
+    { "ColumnName", nameof(CountryResponse.CountryName) },
+    { "DisplayName", "Country Name" },
+    })
+
+    <th>Options</th>
+
+   </tr>
+  </thead>
+  <tbody>
+   @foreach (CountryResponse country in Model)
+   {
+    <tr>
+     <td style="width:15%">@country.CountryName</td>
+     <td style="width:20%">
+      <a asp-controller="Countries" asp-action="Edit" asp-route-personID="@country.CountryID">Edit</a>
+      @* /Countries/Edit/1 *@
+    </tr>
+   }
+   <tr></tr>
+  </tbody>
+
+ </table>
+</form>
+
