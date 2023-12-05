@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
@@ -12,6 +13,7 @@ namespace Entities
     public Guid PersonID { get; set; }
 
     [StringLength(40)] //nvarchar(40)
+    //[Required]
     public string? PersonName { get; set; }
 
     [StringLength(40)] //nvarchar(40)
@@ -31,6 +33,11 @@ namespace Entities
     //bit
     public bool ReceiveNewsLetters { get; set; }
 
+    //[Column("TaxIdentificationNumber", TypeName = "varchar(8)")]
     public string? TIN { get; set; }
+
+
+    [ForeignKey("CountryID")]
+    public virtual Country? Country { get; set; }
   }
 }
