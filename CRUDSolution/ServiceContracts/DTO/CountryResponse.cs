@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Net;
-using System.Reflection;
 using Entities;
-using ServiceContracts.Enums;
 
 namespace ServiceContracts.DTO
 {
@@ -35,11 +32,6 @@ namespace ServiceContracts.DTO
     public override int GetHashCode()
     {
       return base.GetHashCode();
-    }
-
-    public CountryUpdateRequest ToCountryUpdateRequest()
-    {
-      return new CountryUpdateRequest() { CountryID = CountryID, CountryName = CountryName };
     }
   }
 
