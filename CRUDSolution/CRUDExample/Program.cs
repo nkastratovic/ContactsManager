@@ -10,8 +10,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICountriesService, CountriesService>();
 builder.Services.AddScoped<IPersonsService, PersonsService>();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => {
-  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 //Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PersonsDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
@@ -20,8 +21,10 @@ var app = builder.Build();
 
 if (builder.Environment.IsDevelopment())
 {
-  app.UseDeveloperExceptionPage();
+ app.UseDeveloperExceptionPage();
 }
+
+Rotativa.AspNetCore.RotativaConfiguration.Setup("wwwroot", wkhtmltopdfRelativePath: "Rotativa");
 
 app.UseStaticFiles();
 app.UseRouting();
