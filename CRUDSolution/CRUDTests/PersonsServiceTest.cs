@@ -45,9 +45,9 @@ namespace CRUDTests
    dbContextMock.CreateDbSetMock(temp => temp.Persons, personsInitialData);
 
    //Create services based on mocked DbContext object
-   _countriesService = new CountriesService(dbContext);
+   _countriesService = new CountriesService(null);
 
-   _personService = new PersonsService(dbContext, _countriesService);
+   _personService = new PersonsService(null);
 
    _testOutputHelper = testOutputHelper;
   }

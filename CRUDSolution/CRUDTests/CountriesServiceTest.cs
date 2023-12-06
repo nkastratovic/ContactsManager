@@ -33,7 +33,7 @@ namespace CRUDTests
    ApplicationDbContext dbContext = dbContextMock.Object;
    dbContextMock.CreateDbSetMock(temp => temp.Countries, countriesInitialData);
 
-   _countriesService = new CountriesService(dbContext);
+   _countriesService = new CountriesService(null);
   }
 
 
@@ -73,7 +73,7 @@ namespace CRUDTests
    };
 
    //Assert
-   await action.Should().ThrowAsync<ArgumentException>();
+   await action.Should().ThrowAsync<ArgumentNullException>();
   }
 
 
