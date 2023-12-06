@@ -185,7 +185,7 @@ namespace Services
   public async Task<PersonResponse> UpdatePerson(PersonUpdateRequest? personUpdateRequest)
   {
    if (personUpdateRequest == null)
-    throw new ArgumentNullException(nameof(Person));
+    throw new ArgumentNullException(nameof(personUpdateRequest));
 
    //validation
    ValidationHelper.ModelValidation(personUpdateRequest);
